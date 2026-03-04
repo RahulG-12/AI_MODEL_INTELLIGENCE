@@ -24,79 +24,83 @@ This project simulates how **real AI systems are built in industry**.
 
 # System Architecture
 
-Raw Data  
-↓  
-Data Loading  
-↓  
-Preprocessing & Feature Engineering  
-↓  
-Model Training (ML / Neural Network / Transformer)  
-↓  
-Evaluation & Metrics  
-↓  
-Model Comparison  
-↓  
-Explainability (SHAP)  
-↓  
-Model Router  
-↓  
-FastAPI Inference Server  
-↓  
-Streamlit Dashboard  
+
+Raw Data
+↓
+Data Loading
+↓
+Preprocessing & Feature Engineering
+↓
+Model Training (ML / Neural Network / Transformer)
+↓
+Evaluation & Metrics
+↓
+Model Comparison
+↓
+Explainability (SHAP)
+↓
+Model Router
+↓
+FastAPI Inference Server
+↓
+Streamlit Dashboard
+
 
 ---
 
 # Project Structure
 
+
 AI_MODEL_INTELLIGENCE
+│
+├── data
+│ └── dataset.csv
+│
+├── pipeline
+│ ├── data_loader.py
+│ └── preprocess.py
+│
+├── training
+│ ├── train_models.py
+│ ├── train_nn.py
+│ └── train_transformer.py
+│
+├── evaluation
+│ ├── metrics.py
+│ └── model_comparison.py
+│
+├── tracking
+│ └── mlflow_tracker.py
+│
+├── explainability
+│ └── shap_analysis.py
+│
+├── serving
+│ └── model_router.py
+│
+├── api
+│ └── server.py
+│
+├── dashboard
+│ └── app.py
+│
+└── requirements.txt
 
-data  
- └ dataset.csv  
-
-pipeline  
- ├ data_loader.py  
- └ preprocess.py  
-
-training  
- ├ train_models.py  
- ├ train_nn.py  
- └ train_transformer.py  
-
-evaluation  
- ├ metrics.py  
- └ model_comparison.py  
-
-tracking  
- └ mlflow_tracker.py  
-
-explainability  
- └ shap_analysis.py  
-
-serving  
- └ model_router.py  
-
-api  
- └ server.py  
-
-dashboard  
- └ app.py  
-
-requirements.txt  
 
 ---
 
 # Technologies Used
 
-Python  
-PyTorch  
-Scikit-learn  
-Transformers  
-MLflow  
-SHAP  
-FastAPI  
-Streamlit  
-Pandas  
-NumPy  
+- Python  
+- PyTorch  
+- Scikit-learn  
+- Transformers  
+- MLflow  
+- SHAP  
+- FastAPI  
+- Streamlit  
+- Pandas  
+- NumPy  
 
 ---
 
@@ -106,12 +110,10 @@ NumPy
 
 The pipeline loads the dataset and performs preprocessing steps:
 
-• Text cleaning  
-• Tokenization  
-• Feature extraction  
-• Vectorization  
-
-This prepares the data for model training.
+- Text cleaning  
+- Tokenization  
+- Feature extraction  
+- Vectorization  
 
 ---
 
@@ -119,37 +121,37 @@ This prepares the data for model training.
 
 The platform trains **three different model types**.
 
-## 1 Classical Machine Learning Models
+### 1 Classical Machine Learning Models
 
-Examples include:
+Examples:
 
-• Logistic Regression  
-• Random Forest  
-• Support Vector Machine  
+- Logistic Regression  
+- Random Forest  
+- Support Vector Machine  
 
 These models provide baseline performance.
 
 ---
 
-## 2 Neural Network Model
+### 2 Neural Network Model
 
 A custom **PyTorch deep learning architecture** is implemented.
 
 Architecture:
 
-Input Layer  
-↓  
-Hidden Layer (ReLU activation)  
-↓  
+
+Input Layer
+↓
+Hidden Layer (ReLU)
+↓
 Output Layer (Sigmoid)
+
 
 ---
 
-## 3 Transformer Model
+### 3 Transformer Model
 
 A transformer-based architecture is used for advanced NLP tasks.
-
-This allows the system to handle **complex language understanding tasks**.
 
 ---
 
@@ -157,26 +159,24 @@ This allows the system to handle **complex language understanding tasks**.
 
 Each model is evaluated using:
 
-• Accuracy  
-• Precision  
-• Recall  
-• F1 Score  
+- Accuracy  
+- Precision  
+- Recall  
+- F1 Score  
 
-The evaluation module automatically identifies the **best performing model**.
+The evaluation module automatically selects the **best performing model**.
 
 ---
 
 # Explainable AI
 
-The system uses **SHAP (SHapley Additive Explanations)** to understand model predictions.
+The system uses **SHAP (SHapley Additive Explanations)** to interpret model predictions.
 
-SHAP helps analyze:
+It helps analyze:
 
-• Feature importance  
-• Model behavior  
-• Prediction reasoning  
-
-This improves transparency of the AI system.
+- Feature importance  
+- Model behavior  
+- Prediction reasoning  
 
 ---
 
@@ -184,8 +184,9 @@ This improves transparency of the AI system.
 
 The best model is deployed using **FastAPI**.
 
-Example request:
+Example API request:
 
+```json
 POST /predict
 
 {
@@ -197,89 +198,75 @@ Example response:
 {
 "prediction": "Positive"
 }
+Dashboard
 
----
+A Streamlit dashboard provides:
 
-# Dashboard
+Model performance visualization
 
-A **Streamlit dashboard** provides a visual interface to:
+Prediction testing
 
-• Test predictions  
-• View model performance  
-• Compare models  
-• Monitor experiments  
+Model comparison
 
----
+Data insights
 
-# How To Run The Project
-
-## 1 Install Dependencies
-
+How To Run The Project
+Install Dependencies
 pip install -r requirements.txt
-
----
-
-## 2 Train Models
-
+Train Models
 python training/train_models.py
-
----
-
-## 3 Start API Server
-
+Start API Server
 uvicorn api.server:app --reload
 
-API runs on:
+API will run at:
 
 http://127.0.0.1:8000
-
----
-
-## 4 Run Dashboard
-
+Run Dashboard
 streamlit run dashboard/app.py
+Example Use Case
 
----
-
-# Example Use Case
-
-Suppose a company wants to **automatically analyze customer reviews**.
+A company wants to automatically analyze customer reviews.
 
 This platform can:
 
-1 Train multiple AI models  
-2 Compare model performance  
-3 Explain predictions  
-4 Deploy the best model for real-time inference  
+Train multiple AI models
 
----
+Compare model performance
 
-# Future Improvements
+Explain predictions
 
-• Automated hyperparameter tuning  
-• Model drift detection  
-• Distributed training  
-• Kubernetes deployment  
-• CI/CD for ML pipelines  
+Deploy the best model
 
----
+Future Improvements
 
-# Author
+Automated hyperparameter tuning
 
-Rahul Giri  
-Computer Engineering  
-Mumbai University  
+Model drift detection
 
----
+Distributed training
 
-# Why This Project Is Valuable
+Kubernetes deployment
+
+CI/CD for ML pipelines
+
+Author
+
+Rahul Giri
+Computer Engineering
+Mumbai University
+
+Why This Project Is Valuable
 
 This project demonstrates:
 
-• Machine Learning Engineering  
-• Deep Learning Implementation  
-• AI System Architecture  
-• Model Deployment  
-• Explainable AI  
+Machine Learning Engineering
 
-It represents a **real-world production AI pipeline**, not just a simple ML model.
+Deep Learning Implementation
+
+AI System Architecture
+
+Model Deployment
+
+Explainable AI
+
+It represents a real-world production AI pipeline, not just a simple ML model.
