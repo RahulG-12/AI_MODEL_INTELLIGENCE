@@ -1,0 +1,10 @@
+import pandas as pd
+
+def load_dataset(path):
+
+    df = pd.read_csv(path)
+
+    texts = df["text"].values
+    labels = df["label"].values
+
+    return texts, labels
