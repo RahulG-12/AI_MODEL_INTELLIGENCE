@@ -186,7 +186,6 @@ The best model is deployed using **FastAPI**.
 
 Example API request:
 
-```json
 POST /predict
 
 {
