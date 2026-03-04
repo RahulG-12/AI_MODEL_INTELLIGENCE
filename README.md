@@ -300,15 +300,3 @@ Computer Engineering
 Mumbai University
 
 ---
-
-# Why This Project Is Valuable
-
-This project demonstrates:
-
-• Machine Learning Engineering  
-• Deep Learning Implementation  
-• AI System Architecture  
-• Model Deployment  
-• Explainable AI  
-
-It represents a **real-world production AI pipeline**, not just a simple ML model.
