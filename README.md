@@ -1,17 +1,41 @@
 # AI Model Intelligence Platform
 
-## Overview
-AI Model Intelligence Platform is a **production-style machine learning system** that trains, evaluates, compares, and deploys multiple AI models through a scalable architecture.
+A **production-style machine learning system** that trains, evaluates, compares, and deploys multiple AI models through a scalable architecture.
 
-The platform demonstrates a **complete end-to-end AI pipeline**, starting from raw data ingestion to model training, evaluation, explainability, and real-time serving via an API and dashboard.
+The platform demonstrates a **complete end-to-end AI pipeline**, starting from raw data ingestion to model training, evaluation, explainability, and real-time serving through APIs and dashboards.
 
-This project is designed to replicate **real industry ML systems used by AI engineers and ML engineers**.
+This project replicates **real-world ML engineering systems used in production AI environments**.
+
+---
+
+# Project Overview
+
+In real AI systems, building a single model is not enough. Production ML platforms require:
+
+- Model experimentation
+- Evaluation and comparison
+- Explainability
+- Monitoring
+- Real-time inference
+
+This platform implements a **complete ML system architecture** that supports these capabilities.
+
+The pipeline includes:
+
+1. Data ingestion
+2. Preprocessing and feature engineering
+3. Multi-model training
+4. Model evaluation and comparison
+5. Explainability using SHAP
+6. Model routing
+7. API-based inference
+8. Monitoring via dashboard
 
 ---
 
 # Key Features
 
-• Multi-model training pipeline (ML + Deep Learning + Transformer models)
+• Multi-model training pipeline (Machine Learning + Deep Learning + Transformer models)
 
 • Automated model evaluation and comparison
 
@@ -19,101 +43,124 @@ This project is designed to replicate **real industry ML systems used by AI engi
 
 • Explainable AI using **SHAP**
 
-• Model routing system that selects the best model
+• Intelligent **model routing system** that selects the best model
 
-• FastAPI based inference server
+• **FastAPI inference server** for real-time predictions
 
-• Interactive Streamlit dashboard
+• Interactive **Streamlit dashboard**
 
-• Modular production-style architecture
+• Modular **production-style architecture**
 
 ---
 
 # System Architecture
 
-
+```
 Raw Data
-↓
+     │
+     ▼
 Data Loading
-↓
+     │
+     ▼
 Preprocessing & Feature Engineering
-↓
-Model Training (ML / Neural Network / Transformer)
-↓
+     │
+     ▼
+Model Training
+(ML / Neural Network / Transformer)
+     │
+     ▼
 Evaluation & Metrics
-↓
+     │
+     ▼
 Model Comparison
-↓
+     │
+     ▼
 Explainability (SHAP)
-↓
+     │
+     ▼
 Model Router
-↓
+     │
+     ▼
 FastAPI Inference Server
-↓
+     │
+     ▼
 Streamlit Dashboard
-
+```
 
 ---
 
 # Project Structure
 
-
+```
 AI_MODEL_INTELLIGENCE
 │
 ├── data
-│ └── dataset.csv
+│   └── dataset.csv
 │
 ├── pipeline
-│ ├── data_loader.py
-│ └── preprocess.py
+│   ├── data_loader.py
+│   └── preprocess.py
 │
 ├── training
-│ ├── train_models.py
-│ ├── train_nn.py
-│ └── train_transformer.py
+│   ├── train_models.py
+│   ├── train_nn.py
+│   └── train_transformer.py
 │
 ├── evaluation
-│ ├── metrics.py
-│ └── model_comparison.py
+│   ├── metrics.py
+│   └── model_comparison.py
 │
 ├── tracking
-│ └── mlflow_tracker.py
+│   └── mlflow_tracker.py
 │
 ├── explainability
-│ └── shap_analysis.py
+│   └── shap_analysis.py
 │
 ├── serving
-│ └── model_router.py
+│   └── model_router.py
 │
 ├── api
-│ └── server.py
+│   └── server.py
 │
 ├── dashboard
-│ └── app.py
+│   └── app.py
 │
 └── requirements.txt
-
+```
 
 ---
 
-# Technologies Used
+# Tech Stack
 
-Python  
-PyTorch  
+## Programming
+Python
+
+## Machine Learning
 Scikit-learn  
+PyTorch  
 Transformers  
-MLflow  
-SHAP  
-FastAPI  
-Streamlit  
+
+## Experiment Tracking
+MLflow
+
+## Explainable AI
+SHAP
+
+## Backend API
+FastAPI
+
+## Dashboard
+Streamlit
+
+## Data Processing
 Pandas  
-NumPy  
+NumPy
 
 ---
 
 # Machine Learning Pipeline
 
-## 1 Data Processing
+## 1. Data Processing
 
 The pipeline loads the dataset and performs preprocessing steps:
 
@@ -130,7 +177,7 @@ This prepares the data for model training.
 
 The platform trains **three different model types**.
 
-### 1 Classical Machine Learning Models
+### Classical Machine Learning Models
 
 Examples include:
 
@@ -138,44 +185,44 @@ Examples include:
 • Random Forest  
 • Support Vector Machine  
 
-These models provide a baseline.
+These models provide baseline performance.
 
 ---
 
-### 2 Neural Network Model
+### Neural Network Model
 
 A custom **PyTorch deep learning architecture** is implemented.
 
 Example architecture:
 
-Input Layer  
-↓  
-Hidden Layer (ReLU activation)  
-↓  
+```
+Input Layer
+     ↓
+Hidden Layer (ReLU activation)
+     ↓
 Output Layer (Sigmoid)
+```
 
 ---
 
-### 3 Transformer Model
+### Transformer Model
 
 A transformer-based architecture is used for advanced NLP tasks.
 
-This allows the system to handle **complex language understanding tasks**.
+This allows the system to perform **complex language understanding tasks**.
 
 ---
 
 # Model Evaluation
 
-Each model is evaluated using multiple metrics.
-
-Metrics used:
+Each model is evaluated using multiple metrics:
 
 • Accuracy  
 • Precision  
 • Recall  
 • F1 Score  
 
-The evaluation system automatically identifies the **best performing model**.
+The evaluation module automatically identifies the **best-performing model**.
 
 ---
 
@@ -189,31 +236,31 @@ SHAP helps analyze:
 • Model behavior  
 • Prediction reasoning  
 
-This improves model transparency and trust.
+This improves **model transparency and trust**.
 
 ---
 
 # Model Serving
 
-The best model is deployed using **FastAPI**.
+The best-performing model is deployed using **FastAPI**.
 
 Example request:
 
-
+```
 POST /predict
 
 {
 "text": "This product is amazing"
 }
-
+```
 
 Example response:
 
-
+```
 {
 "prediction": "Positive"
 }
-
+```
 
 ---
 
@@ -230,41 +277,41 @@ A **Streamlit dashboard** provides a visual interface to:
 
 # How To Run The Project
 
-## 1 Install Dependencies
+## Install Dependencies
 
-
+```
 pip install -r requirements.txt
-
+```
 
 ---
 
-## 2 Train Models
+## Train Models
 
-
+```
 python training/train_models.py
-
+```
 
 ---
 
-## 3 Start API Server
+## Start API Server
 
-
+```
 uvicorn api.server:app --reload
+```
 
+API will run at:
 
-API will run on:
-
-
+```
 http://127.0.0.1:8000
-
+```
 
 ---
 
-## 4 Run Dashboard
+## Run Dashboard
 
-
+```
 streamlit run dashboard/app.py
-
+```
 
 ---
 
@@ -274,10 +321,18 @@ Suppose a company wants to **automatically analyze customer reviews**.
 
 This platform can:
 
-1 Train multiple AI models  
-2 Compare their performance  
-3 Explain predictions  
-4 Deploy the best model  
+1. Train multiple AI models  
+2. Compare their performance  
+3. Explain predictions  
+4. Deploy the best model through an API  
+
+---
+
+# Demo
+
+🎥 Project Demo Video  
+
+https://drive.google.com/file/d/1tQbttwZXyGUKMYXOaSz_CPS96x1dvC1v/view
 
 ---
 
@@ -289,14 +344,20 @@ Possible extensions:
 • Model drift detection  
 • Distributed training  
 • Kubernetes deployment  
-• CI/CD for ML pipelines  
+• CI/CD pipelines for ML systems  
 
 ---
 
 # Author
 
 Rahul Giri  
-Computer Engineering  
-Mumbai University
+AI / ML Engineer  
+Mumbai, India
+
+GitHub: https://github.com/RahulG-12
 
 ---
+
+# License
+
+This project is intended for **educational and research purposes**.
